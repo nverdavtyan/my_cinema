@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../css/user_update.css">
+    <title>User Details</title>
+</head>
+
+<body>
+    <div class="container rounded bg-white mt-5 mb-5 p-2">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $userdetails['firstname'] ?> <?= $userdetails['lastname'] ?></span><span class="text-black-50"><?= $userdetails['email'] ?></span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h1 class="text-right">Profile Settings</h1>
+                    </div>
+                    <form>
+                        <div class="form-group"><label class="mr-2">Subscription type:</label>
+                            <?= $userdetails['subname'] ?>
+                        </div>
+                        <div class="form-group"><label class="mr-2">Subscription date: </label><?= $userdetails['date_begin'] ?> </div>
+                    </form>
+                    <a href="user_history.php?id=<?= $userdetails['userid'] ?>" class="btn btn-primary profile-button" type="button">User history</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 text-center"><a href="index.php" class="btn btn-primary profile-button" type="button">Back to List</a></div>
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

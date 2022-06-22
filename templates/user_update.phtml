@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../css/user_update.css">
+    <title>Edit user Info</title>
+</head>
+<body>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $userdetails['firstname'] ?> <?= $userdetails['lastname'] ?></span><span class="text-black-50"><?= $userdetails['email'] ?></span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+
+        <form action="edit.php?id=<?= $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?= $userdetails['userid']; ?>">
+        <input type="hidden" name= "date_begin" value="<?= $userdetails['date_begin']; ?>">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                
+                <div class="row mt-2">
+
+                    <div class="col-md-6"><label class="labels">Lastname</label><input type="text"  name="firstname" class="form-control"  value="<?= $userdetails['firstname'] ?>" ></div>
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text"     name="lastname" class="form-control"  value="<?= $userdetails['lastname'] ?>"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text"     name="email" class="form-control"  value="<?= $userdetails['email'] ?>"></div>
+                    <!-- <div class="col-md-12"><label class="labels">Email</label>  <input  type="datetime-local" class="form-control"  name="date_begin" value=""></div> -->
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Abonnement</label>
+                    <select  class="form-control"  name="id_subscription" >
+                    <?php foreach($listsubscriptiontype as $sub): ?>
+                    <?php
+                        $selected = "";
+                        if($sub['id'] ==   $userdetails['id_subscription']){
+                            $selected = "selected=\"selected\"";
+                        }
+                    ?>
+                    <option <?php echo $selected; ?> value="<?= $sub['id'] ?>"><?= $sub['subname'] ?></option>
+                <?php endforeach; ?> </select>
+                        </div>
+
+
+                </div>
+           
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+            </div>
+                    </form>
+
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

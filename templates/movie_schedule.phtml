@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../css/user_update.css">
+    <title>New Movie schedule</title>
+</head>
+<body>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+
+        </div>
+        <div class="col-md-5 border-right">
+
+        <form action="movie_schedule.php" method="POST" enctype="multipart/form-data">
+
+
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">New Movie schedule</h4>
+                </div>
+                
+                <div class="row mt-2">
+
+                    <div class="col-md-12"><label class="labels">Movie</label><input type="number"     name="id_movie" class="form-control"  value="<?= $userdetails['id_movie'] ?>"></div>
+                    <div class="col-md-12"><label class="labels">date</label>  <input  type="datetime-local"  class="form-control"  name="date_begin" value=""></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Abonnement</label>
+                    <select  class="form-control"  name="id_room" >
+                    <?php foreach($listrooms as $rooms): ?>
+                    <?php
+                        $selected = "";
+                        if($rooms['id_room'] ==  $movieScheduledetail['id_room']){
+                            $selected = "selected=\"selected\"";
+                        }
+                     
+                    ?>
+                    <option <?php echo $selected; ?> value="<?= $rooms['id'] ?>"><?= $rooms['name'] ?></option>
+                <?php endforeach; ?> </select>
+                        </div>
+
+
+                </div>
+           
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+            </div>
+                    </form>
+
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
